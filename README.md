@@ -1,36 +1,161 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 Headless WordPress + Next.js Project
 
-## Getting Started
+A modern **Headless CMS application** built using **WordPress (ACF)** as the backend and **Next.js** as the frontend. This project delivers fast, scalable, and SEO-friendly web experiences using REST APIs.
 
-First, run the development server:
+---
+
+## 📌 Tech Stack
+
+* **Frontend:** Next.js, React.js, Tailwind CSS
+* **Backend (CMS):** WordPress (Headless)
+* **Custom Fields:** Advanced Custom Fields (ACF)
+* **API:** WordPress REST API
+* **Deployment:** Vercel
+* **Version Control:** Git & GitHub
+
+---
+
+## ⚙️ Features
+
+* Headless architecture (Decoupled frontend & backend)
+* Dynamic content rendering using WordPress REST API
+* Custom fields support via ACF
+* Responsive UI with Tailwind CSS
+* Environment-based API configuration
+* SEO-friendly structure (SSR/SSG ready)
+* Fast deployment with Vercel
+
+---
+
+## 📂 Project Structure
+
+```
+project-root/
+│
+├── frontend/ (Next.js app)
+│   ├── components/
+│   ├── pages/ or app/
+│   ├── styles/
+│   ├── lib/ (API functions)
+│   └── .env.local
+│
+├── wordpress/ (optional reference)
+│   ├── wp-content/
+│   │   ├── themes/your-custom-theme
+│   │   └── plugins/acf
+│
+└── README.md
+```
+
+---
+
+## 🔧 Setup Instructions
+
+### 1️⃣ Clone Repository
+
+```bash
+git clone https://github.com/avinashkonangi-git/saas-test
+```
+
+---
+
+### 2️⃣ Setup Frontend (Next.js)
+
+```bash
+cd frontend
+npm install
+```
+
+---
+
+### 3️⃣ Environment Variables
+
+Create a `.env.local` file inside the `frontend` folder:
+
+```env
+WP_API_URL=https://your-wordpress-site.com/wp-json
+```
+
+> ⚠️ Make sure your WordPress REST API is publicly accessible.
+
+---
+
+### 4️⃣ Run Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+App will be available at:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🔗 WordPress Setup
 
-To learn more about Next.js, take a look at the following resources:
+* Install WordPress
+* Create a custom theme (if needed)
+* Install and configure ACF plugin
+* Create required custom fields
+* Ensure REST API is enabled:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+https://your-site.com/wp-json
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🚀 Deployment (Vercel)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Push your code to GitHub
+2. Import the repository into Vercel
+3. Add environment variable in Vercel:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+WP_API_URL=https://your-wordpress-site.com/wp-json
+```
+
+4. Click **Deploy**
+
+---
+
+## 📡 API Usage Example
+
+```js
+export async function getPosts() {
+  const res = await fetch(`${process.env.WP_API_URL}/wp/v2/posts`);
+  return res.json();
+}
+```
+
+---
+
+## 🧪 Future Improvements
+
+* Add authentication (JWT / OAuth)
+* Integrate WPGraphQL
+* Improve caching & ISR (Incremental Static Regeneration)
+* Add SEO enhancements (meta tags, sitemap)
+* Add unit & integration tests
+
+---
+
+## 🤝 Contributing
+
+Feel free to fork this repo and submit pull requests.
+
+---
+
+## 👨‍💻 Author
+
+**Your Name**
+GitHub: [https://github.com/your-username](https://github.com/your-username)
+
+---
+
+## 🌐 Live Demo
+
+*Add your Vercel deployment link here*
