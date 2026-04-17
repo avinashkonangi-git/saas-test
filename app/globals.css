@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #001233;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+.custom-wysiwyg p {
+  @apply mt-4 text-gray-600 text-sm md:text-base;
+}
+
+.custom-wysiwyg ul {
+  @apply mt-6 space-y-3;
+}
+
+.custom-wysiwyg li {
+  @apply flex items-start gap-3 text-gray-700 text-sm;
+}
+
+.custom-wysiwyg li::before {
+  content: "✓";
+  @apply mt-1 flex h-5 w-5 items-center justify-center rounded-full bg-blue-100 text-blue-600 text-xs font-bold;
+}
+
+.custom-wysiwyg li {
+  @apply flex items-start gap-3 text-gray-700 text-sm;
+}
+
+.custom-wysiwyg li::before {
+  content: "✓";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 20px;
+  width: 20px;
+  border-radius: 9999px;
+  background-color: #dbeafe; /* bg-blue-100 */
+  color: #2563eb; /* text-blue-600 */
+  font-size: 12px;
+  font-weight: 700;
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.custom-wysiwyg p:first-of-type {
+  @apply mt-4;
+}
+
+.custom-wysiwyg p:last-of-type {
+  @apply mt-6;
+}
