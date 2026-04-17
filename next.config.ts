@@ -3,7 +3,14 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   /* config options here */
   images: {
-    domains: ["saas-test.brightwebforge.com"],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'saas-test.brightwebforge.com',
+        port: '',
+        pathname: '/**',
+      },
+    ],
   },
 };
 
