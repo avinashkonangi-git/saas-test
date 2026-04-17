@@ -1,7 +1,6 @@
 import HeroSection from "@/components/HeroSection";
 import ProblemSection from "@/components/ProblemSection";
 import ResultsSection from "@/components/ResultsSection";
-import AutoSection from "@/components/AutoSection";
 import Build from "@/components/Build";
 import { getPageData } from "@/lib/api";
 
