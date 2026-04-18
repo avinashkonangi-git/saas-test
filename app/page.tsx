@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation";
 import HeroSection from "@/components/HeroSection";
 import ProblemSection from "@/components/ProblemSection";
 import ResultsSection from "@/components/ResultsSection";
@@ -6,6 +7,9 @@ import { getPageData } from "@/lib/api";
 
 export default async function Home() {
   const page = await getPageData("home");
+  if (!page) {
+    notFound(); // ✅ clean 404 page
+  }
   const acf = page.acf;
   return (
     <>
